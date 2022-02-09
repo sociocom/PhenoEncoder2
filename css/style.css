@@ -1,0 +1,49 @@
+
+body{
+  font-family: Arial;
+  text-align: center;
+}
+
+.date{
+  font-size: 300%;
+  font-family: "Time New Roma", "Time", "serif";
+}
+
+textarea{
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+}
+
+.description img{
+  float: left;
+}
+
+footer{
+  text-align: left;
+  font-size: 80%;
+  margin: 10px;
+}
+
+header{
+  background-color: white;
+  padding: 0.05px;
+  color: white;
+}
+
+h1{
+  margin: 0;
+  font-weight: normal;
+}
+
+body{
+  background-color: white
+  margin: 0 auto;
+  padding: 10px;
+  color: #666;
+}
+
+.rireki{
+  text-align: left;
+  margin: 10px;
+}
