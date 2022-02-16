@@ -18,7 +18,7 @@ Python 3.6.9
 ## ローカルでの実行方法
 Type following command on terminal.
 ```
-git clone dgit@github.com:sociocom/PhenoEncoder2.git
+git clone git@github.com:sociocom/PhenoEncoder2.git
 cd PhenoEncoder2
 python cgiserver.py
 ```
