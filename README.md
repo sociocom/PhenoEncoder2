@@ -19,10 +19,23 @@ Python 3.6.9
 Type following command on terminal.
 ```
 git clone git@github.com:sociocom/PhenoEncoder2.git
-cd PhenoEncoder2
+```
+### WEB mode
+```
+cd webapp
 python cgiserver.py
 ```
 Then, access to http://localhost:8000 .
+
+### CLI mode
+#### Input
+```
+python CLI/cli.py
+```
+#### Output
+```
+cat CLI/output.csv
+```
 
 ___
 

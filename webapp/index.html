@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport content" width="device-width">
+  <title>Pheno Encoder (公開用)</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+
+	<link rel = "stylesheet" href = "css/sanitize.css">
+	<link rel = "stylesheet" href = "css/style.css">
+</head>
+
+
+<body>
+	<header>
+		<h1>Sample</h1>
+	</header>
+
+	<form method="post" action="/cgi-bin/result.py">
+
+	<div class = "container">
+
+		<div class = "description">
+			<img src="images/LOGO.png" width=200/>
+		</div>
+
+
+
+		<div class = "form-group">
+
+			<textarea name = "form_text" id = "message" col = "80" row = "20" class = "form-control">Liddle症候群が疑われたが、偽性アルドステロン症と鑑別された症例を報告する。症例は81歳の女性で、体重70Kｇ、身長157cm。病前は独步でADLは自立。既往歴には高脂血症、前壁梗塞のため冠動脈バイパス術、2型糖尿病のためインスリン治療を受けていた。家族歴は従姉妹：胃癌、低カリウム血症の家族歴は明らかでない。生活歴：4か月前より禁煙。現病歴はX年２月頃、近医にて下肢有痛性筋痙攣のため芍薬甘草湯の内服を開始した。同年３月より全身倦怠感と夜間呼吸困難を認めるようになり、買い物中に意識朦朧となり、当院へ救急搬送され緊急入院となった。入院時の体温37．3℃、血圧141／80　mmHg、脈拍68bpm、呼吸数18回／分、SpO298％（room air）。血液検査ではカリウム1．6　mEqA、レニン活性低下、心電図変化を認め、偽性アルドステロン症と診断し、保存的加療を行った。入院後、芍薬甘草湯内服は中止、心不全薬物療法、カリウム製剤補充を行った。血清カリウム値の是正に難渋し、入院中に心不全再増悪を認め、甘草湯の薬効残存が考えられた。
+			</textarea>
+			<!--
+			<input type="button" value="＋" class="add pluralBtn">
+			<input type="button" value="－" class="del pluralBtn">
+			-->
+			<br>
+		</div>
+	</div>
+
+	<div class = "function">
+		<label>機能選択</label>
+			<div>
+				<label class = "radio-inline">
+					<input type="radio" name="riyu" value="A1" checked="checked">全機能
+				</label>
+				<label class = "radio-inline">
+					<input type="radio" name="riyu" value="B1">要約のみ
+				</label>
+				<label class = "radio-inline">
+					<input type="radio" name="riyu" value="C1">病名抽出のみ
+				</label>
+			</div>
+
+			<br>
+
+			<button type="submit" value="exec", class = "btn btn-default">実行</button>
+			<br>
+
+
+
+			<div class = "rireki">
+				<hr>
+				更新履歴
+				<br>
+				2019/01/24: フォームのバージョンを更新
+				<hr>
+			</div>
+
+			<footer>
+				&copy; Social Computing lab
+			</footer>
+
+	</div>
+	<!--
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+	-->
+</body>
+</html>
