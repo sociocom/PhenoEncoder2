@@ -31,6 +31,17 @@ Then, access to http://localhost:8000 .
 #### Input
 ```
 python CLI/cli.py
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t INPUTTEXT, --inputText INPUTTEXT
+                        テキスト入力
+  -i INPUTFILE, --inputFile INPUTFILE
+                        入力ファイルのパス
+  -p {0,1,2}, --phenoType {0,1,2}
+                        機能選択．0(default): 全機能, 1: 要約のみ, 2: 病名抽出のみ
+  -o OUTPUTFILE, --outputFile OUTPUTFILE
+                        出力先ファイルのパス
 ```
 #### Output
 ```
