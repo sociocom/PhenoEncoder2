@@ -6,69 +6,57 @@ csvファイルからカルテ要約作成と病名を抽出します．
 ## 手法
 ルールベースにより患者の要約を作成し，SVMを使用して病名の抽出します。
 
-詳細は[こちら](https://www.jstage.jst.go.jp/article/jsaisigtwo/2018/AIMED-006/2018_01/_article/-char/ja/)の論文をご覧ください
+詳細は[こちら](https://www.jstage.jst.go.jp/article/jsaisigtwo/2018/AIMED-006/2018_01/_article/-char/ja/)の論文をご覧ください.
+動作チェックを行いたい場合は[デモ環境](http://aoi.naist.jp/~shibata/PhenoEncoder/sample%20app/)にアクセスすると確認ができます．
 
 
 ## 環境
 ```
 Python 3.6.9
 ```
-その他パッケージは `requirement.txt` をご覧ください．
 
 ## ローカルでの実行方法
-Type following command on terminal.
+[MeCab](https://taku910.github.io/mecab/)のインストールを行ってください．
+
+mac環境ではbrewでインストールできます．
+Mecabのインストール後は以下のコマンドで行ってください．
+(仮想環境内での実行を推奨します)
 ```
 git clone git@github.com:sociocom/PhenoEncoder2.git
+pip install -r PhenoEncoder2/requirement.txt
 ```
-### WEB mode
+
+## ブラウザから実行
+下記コマンドを実行後，http://localhost:8000　にアクセスすると実行可能です.
 ```
 cd webapp
 python cgiserver.py
 ```
-Then, access to http://localhost:8000 .
 
-### CLI mode
-#### Input
+## CLI（ターミナル）から実行
+`python CLI/cli.py` で実行可能です。
+
+オプションの`-t`または`-i`を指定せず実行した場合、デフォルトの例文が要約対象となります。
+### オプション
+- `-t` or `--inputText`：カルテテキストのコマンドライン入力
+- `-i` or `--inputFile`：入力ファイル名
+- `-o` or `--phenoType`：出力ファイル名
+- `-p` or `--outputFile`：機能選択 
+  - `0`: 要約および病名抽出 (default)
+  - `1`: 要約のみ
+  - `2`: 病名抽出のみ
+
+### 実行例
+#### コマンド
+`pthon CLI/cli.py -i input.csv`
+#### 入力 ( input.csv )
 ```
-python CLI/cli.py
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -t INPUTTEXT, --inputText INPUTTEXT
-                        テキスト入力
-  -i INPUTFILE, --inputFile INPUTFILE
-                        入力ファイルのパス
-  -p {0,1,2}, --phenoType {0,1,2}
-                        機能選択．0(default): 全機能, 1: 要約のみ, 2: 病名抽出のみ
-  -o OUTPUTFILE, --outputFile OUTPUTFILE
-                        出力先ファイルのパス
+Liddle症候群が疑われたが､偽性ｱﾙﾄﾞｽﾃﾛﾝ症と鑑別された症例を報告する｡症例は81歳の女性で､体重70Kg､身長157cm｡病前は独步でADLは自立｡既往歴には高脂血症､前壁梗塞のため冠動脈ﾊﾞｲﾊﾟｽ術､2型糖尿病のためｲﾝｽﾘﾝ治療を受けていた｡家族歴は従姉妹:胃癌､低ｶﾘｳﾑ血症の家族歴は明らかでない｡生活歴:4か月前より禁煙｡現病歴はX年2月頃､近医にて下肢有痛性筋痙攣のため芍薬甘草湯の内服を開始した｡同年3月より全身倦怠感と夜間呼吸困難を認めるようになり､買い物中に意識朦朧となり､当院へ救急搬送され緊急入院となった｡入院時の体温37.3℃､血圧141/80mmHg､脈拍68bpm､呼吸数18回/分､SpO298%(roomair)｡血液検査ではｶﾘｳﾑ1.6mEqA､ﾚﾆﾝ活性低下､心電図変化を認め､偽性ｱﾙﾄﾞｽﾃﾛﾝ症と診断し､保存的加療を行った｡入院後､芍薬甘草湯内服は中止､心不全薬物療法､ｶﾘｳﾑ製剤補充を行った｡血清ｶﾘｳﾑ値の是正に難渋し､入院中に心不全再増悪を認め､甘草湯の薬効残存が考えられた｡,
 ```
-#### Output
+#### 出力
+```CLI/output.csv```
+
 ```
-cat CLI/output.csv
+原文,性別,身長,体重,年齢,HbA1c,CRP,血圧,体温,脈拍,抗血小板薬,抗凝固薬,スタチン,糖尿病治療薬,糖尿病,喫煙,飲酒,診断名
+Liddle症候群が疑われたが､偽性ｱﾙﾄﾞｽﾃﾛﾝ症と鑑別された症例を報告する｡症例は81歳の女性で､体重70Kg､身長157cm｡病前は独步でADLは自立｡既往歴には高脂血症､前壁梗塞のため冠動脈ﾊﾞｲﾊﾟｽ術､2型糖尿病のためｲﾝｽﾘﾝ治療を受けていた｡家族歴は従姉妹:胃癌､低ｶﾘｳﾑ血症の家族歴は明らかでない｡生活歴:4か月前より禁煙｡現病歴はX年2月頃､近医にて下肢有痛性筋痙攣のため芍薬甘草湯の内服を開始した｡同年3月より全身倦怠感と夜間呼吸困難を認めるようになり､買い物中に意識朦朧となり､当院へ救急搬送され緊急入院となった｡入院時の体温37.3℃､血圧141/80mmHg､脈拍68bpm､呼吸数18回/分､SpO298%(roomair)｡血液検査ではｶﾘｳﾑ1.6mEqA､ﾚﾆﾝ活性低下､心電図変化を認め､偽性ｱﾙﾄﾞｽﾃﾛﾝ症と診断し､保存的加療を行った｡入院後､芍薬甘草湯内服は中止､心不全薬物療法､ｶﾘｳﾑ製剤補充を行った｡血清ｶﾘｳﾑ値の是正に難渋し､入院中に心不全再増悪を認め､甘草湯の薬効残存が考えられた｡,女性,157cm,70Kg,81歳,-,-,141-80mmHg,37.3℃,68bpm,N,N,N,N, P, P2,U,偽性アルドステロン症
 ```
-
-___
-
-### 環境構築メモ
-***PhenoEncoder2***を構築するためのメモです．
-
-筆者は *macOS* に *pyenv* と *venv* を用いて構築しました．
-`PE_2.py` で *import* されているパッケージを順に `pip install hogehoge` をしていけば，基本同じパッケージがインストールできます．
-※一部ダウングレードしたパッケージをしてしないといけない場合があったので，注意点を参照すること．
-
-#### 注意点
-pythonのバージョンは **3.6.9** で構築しています．
-いくつかのパッケージは随時 `git clone hogehoge` したのち，`setup.py` を実行した記憶があります．
-
-筆者がインストールしたパッケージは同階層にある `requirement.txt` に記録しています．
-もし構築時にエラーが出た際は `requirement.txt` を参照して，バージョンと相違ないか確認してください．
-
-同階層の `cgiserver.py` を実行したのち，http://localhost:8000 にアクセスするとデモ操作ができます．
-
-### 動作の確認について
-index.html内のtextareaに改行区切りで入力された複数ドキュメントに対して要約，病名抽出します．
-単一ドキュメントではありますが，動作チェックを行いたい場合は[デモ環境](http://aoi.naist.jp/~shibata/PhenoEncoder/sample%20app/)にアクセスすると確認ができます．
-
-#### 注意点
-階層が違うところで `cgiserver.py` を実行すると，実行した階層の `index.html` を開こうとするので注意すること．

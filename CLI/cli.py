@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     group1.add_argument("-t", "--inputText", help="テキスト入力", nargs=1, default='')
     group1.add_argument("-i", "--inputFile", help="入力ファイルのパス", nargs=1, default='')
-    parser.add_argument("-p", "--phenoType", help="機能選択．0(default): 全機能, 1: 要約のみ, 2: 病名抽出のみ ", nargs=1, choices=[0,1,2],default='0')
+    parser.add_argument("-p", "--phenoType", help="機能選択．0(default): 全機能, 1: 要約のみ, 2: 病名抽出のみ ", nargs=1, choices=['0', '1', '2'],default='0')
     parser.add_argument("-o", "--outputFile", help="出力先ファイルのパス", nargs=1, default='output.csv')
 
     # namespaceオブジェクトの生成
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     #排他グループによる処理分岐
     if args.inputText != '':
-        value=args.inputText
+        value="".join(args.inputText)
 
     #--addを設定した場合の処理
     elif args.inputFile != '':
@@ -49,6 +49,6 @@ if __name__ == "__main__":
     # csvに書き出し
     with open(args.outputFile, 'w') as f:
         writer = csv.writer ( f )
-        writer.writerow( ['性別', '身長', '体重', '年齢', 'HbA1c', 'CRP', '血圧', '体温', '脈拍', '抗血小板薬', '抗凝固薬', 'スタチン', '糖尿病治療薬', '糖尿病', '喫煙', '飲酒', '診断名'])
+        writer.writerow( ['原文', '性別', '身長', '体重', '年齢', 'HbA1c', 'CRP', '血圧', '体温', '脈拍', '抗血小板薬', '抗凝固薬', 'スタチン', '糖尿病治療薬', '糖尿病', '喫煙', '飲酒', '診断名'])
         for data in csv_data:
             writer.writerow( data )
