@@ -24,19 +24,15 @@ RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
   cd ..
 EXPOSE 8000
 
-# ------------------------------------------------------ #
-# dockerfile のみで実行する場合は以下のコメントアウトを有効化する #
-# ------------------------------------------------------ #
+WORKDIR /home
+COPY requirement.txt /home
+RUN pip install --upgrade pip && \
+  pip install -r /home/requirement.txt
 
-# WORKDIR /home
-# COPY requirement.txt /home
-# RUN pip install --upgrade pip && \
-#   pip install -r /home/requirement.txt
+COPY ./webapp /home/webapp
+WORKDIR /home/webapp
 
-# COPY ./webapp /home/webapp
-# WORKDIR /home/webapp
-
-# RUN groupadd web
-# RUN useradd -d /home/webapp -m python
-# USER python
-# ENTRYPOINT ["python", "cgiserver.py"]
+RUN groupadd web
+RUN useradd -d /home/webapp -m python
+USER python
+ENTRYPOINT ["python", "cgiserver.py"]
