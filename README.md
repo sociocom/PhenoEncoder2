@@ -14,6 +14,7 @@ csvファイルからカルテ要約作成と病名を抽出します．
 ```
 Python 3.6.9
 ```
+（注）M1 macには対応していません．windowsの方は `NVIDIA CUDA Toolkit`及び`NVIDIA CUDA Toolkit`等ツールをインストールください（[参考](https://gist.github.com/mignonstyle/083c9e1651d7734f84c99b8cf49d57fa)）．
 
 ## ローカルでの実行方法
 [MeCab](https://taku910.github.io/mecab/)のインストールを行ってください．
@@ -28,10 +29,16 @@ pip install -r PhenoEncoder2/requirement.txt
 
 ## ブラウザから実行
 下記コマンドを実行後，[http://localhost:8000](http://localhost:8000)　にアクセスすると実行可能です.
+- Dockerをインストール済の場合
+```
+docker-compose up
+```
+- Dockerをインストールしていない場合
 ```
 cd webapp
 python cgiserver.py
 ```
+
 
 ## CLI（ターミナル）から実行
 `python CLI/cli.py` で実行可能です。
