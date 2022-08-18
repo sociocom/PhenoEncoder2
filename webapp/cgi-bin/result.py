@@ -33,11 +33,11 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
 
     # csvに書き出し
-    with open('./output/result.csv', 'w') as f:
-        writer = csv.writer ( f )
-        writer.writerow( ['原文', '性別', '身長', '体重', '年齢', 'HbA1c', 'CRP', '血圧', '体温', '脈拍', '抗血小板薬', '抗凝固薬', 'スタチン', '糖尿病治療薬', '糖尿病', '喫煙', '飲酒', '診断名'])
-        for data in csv_data:
-            writer.writerow( data )
+    # with open('./output/result.csv', 'w') as f:
+    #     writer = csv.writer ( f )
+    #     writer.writerow( ['原文', '性別', '身長', '体重', '年齢', 'HbA1c', 'CRP', '血圧', '体温', '脈拍', '抗血小板薬', '抗凝固薬', 'スタチン', '糖尿病治療薬', '糖尿病', '喫煙', '飲酒', '診断名'])
+    #     for data in csv_data:
+    #         writer.writerow( data )
 
     """
     HTMLの表示

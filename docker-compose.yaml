@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: ./
+    ports:
+      - 8000:8000
+    volumes:
+      - ./webapp /home/webapp
+      - requirement.txt /home/webapp
+    working_dir: /home/webapp
+    command: pip install --upgrade pip &&
+      pip install -r requirement.txt &&
+      python cgiserver.py
