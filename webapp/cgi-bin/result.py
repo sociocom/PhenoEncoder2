@@ -55,5 +55,5 @@ if __name__ == "__main__":
     for syourei in syoureigun:
         print("<div style=\"padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;\"><font size=\"2\" color=\"#000000\">{0}</font></div>".format(syourei))
     print("<ul><li><font size=\"2\" color=\"#000000\">赤色の単語は陽性所見，青色の単語は陰性所見を示す．</font></li></ul>")
-    print("<h4><a href=\"http://localhost:8000\">戻る</a><h4><style>h4 {position: relative;color: #158b2b;font-size: 20px;padding: 10px 0;text-align: center;margin: 1.5em 0;}h1:before {content: "";position: absolute;top: -8px;left: 50%;width: 150px;height: 58px;border-radius: 50%;border: 5px solid #a6ddb0;border-left-color: transparent;border-right-color: transparent;-moz-transform: translateX(-50%);-webkit-transform: translateX(-50%);-ms-transform: translateX(-50%);transform: translateX(-50%);}</style>")
+    print('<button type="button" onClick="history.back()">戻る</button>')
     
