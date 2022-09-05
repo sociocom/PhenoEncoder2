@@ -7,7 +7,7 @@ csvファイルからカルテ要約作成と病名を抽出します．
 ルールベースにより患者の要約を作成し，SVMを使用して病名の抽出します。
 
 詳細は[こちら](https://www.jstage.jst.go.jp/article/jsaisigtwo/2018/AIMED-006/2018_01/_article/-char/ja/)の論文をご覧ください.
-動作チェックを行いたい場合は[デモ環境](http://aoi.naist.jp/~shibata/PhenoEncoder/sample%20app/)にアクセスすると確認ができます．
+動作チェックを行いたい場合は[デモ環境](https://aoi.naist.jp/PhenoEncoder2/)にアクセスすると確認ができます．
 
 
 ## 環境
