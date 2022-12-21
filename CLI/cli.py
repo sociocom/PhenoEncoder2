@@ -60,8 +60,6 @@ if __name__ == "__main__":
         for i, data in enumerate(csv_data):
             writer.writerow( ['原文', '性別', '身長', '体重', '年齢', 'HbA1c', 'CRP', '血圧', '体温', '脈拍', '抗血小板薬', '抗凝固薬', 'スタチン', '糖尿病治療薬', '糖尿病', '喫煙', '飲酒', '診断名', '陽性所見', '陰性所見'])
             if type1 != 'B1':
-                csv_row = data.extend(" ".join( re.findall(r'<font size=\"2\" color=\"#ff0000\">(.+?)</font>', syoureigun[i])))
-                csv_row = data.extend(" ".join( re.findall(r'<font size=\"2\" color=\"blue\">(.+?)</font>', syoureigun[i])))
-                writer.writerow( csv_row )
-            else:
-                writer.writerow( data )
+                data.append(" ".join( re.findall(r'<font size=\"2\" color=\"#ff0000\">(.+?)</font>', syoureigun[i])))
+                data.append(" ".join( re.findall(r'<font size=\"2\" color=\"blue\">(.+?)</font>', syoureigun[i])))
+            writer.writerow( data )
